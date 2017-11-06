@@ -1,3 +1,5 @@
+# Implement grayscale erosion with a squre structuring element of a size 5x5.
+
 import cv2
 import sys
 
