@@ -1,15 +1,17 @@
-# Implement grayscale erosion with a squre structuring element of a size 5x5.
+# Implement grayscale erosion with a square structuring element of a size 5x5.
 
 import cv2
 import sys
+import numpy
 
 filenameIn = sys.argv[1]
 filenameOut = sys.argv[2]
-
-print("filename is", filenameIn)
-
 img = cv2.imread(filenameIn, 0)
 
+struct = numpy.ones((5,5), numpy.uint8)
+
+# A perfect erosion, performed by OpenCV's native method
+#img = cv2.erode(img, struct, iterations=1)
 
 
 # Normally save image, but for dev we just show it
