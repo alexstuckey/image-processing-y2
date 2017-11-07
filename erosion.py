@@ -23,10 +23,12 @@ for x in range(0, img.shape[1]):
 		# And perform a reduce.
 		verticalRange   = range(y-verticalMove, y+1+verticalMove)
 		horizontalRange = range(x-horizontalMove, x+1+horizontalMove)
+		infimum = 255
 		for a in horizontalRange:
 			for b in verticalRange:
-				#img_eroded[b,a] = 255
-				g = 1
+				if img[b,a] < infimum:
+					infimum = img[b,a]
+		img_eroded[y,x] = infimum
 
 
 # A perfect erosion, performed by OpenCV's native method
