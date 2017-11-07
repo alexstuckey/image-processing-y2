@@ -25,22 +25,26 @@ import dilation
 #####################################################################
 # Script implementation
 
-# Accessing the file
-filenameIn = sys.argv[1]
-filenameOut = sys.argv[2]
-readImage = cv2.imread(filenameIn, 0)
+def main():
+  # Accessing the file
+  filenameIn = sys.argv[1]
+  filenameOut = sys.argv[2]
+  readImage = cv2.imread(filenameIn, 0)
 
-# My erosion implementation
-img_eroded = erosion.erode(readImage)
-img_opened = dilation.dilate(img_eroded)
+  # My erosion implementation
+  img_eroded = erosion.erode(readImage)
+  img_opened = dilation.dilate(img_eroded)
 
-# A perfect erosion, performed by OpenCV's native method
-#img_opened2 = cv2.morphologyEx(readImage, cv2.MORPH_OPEN, numpy.ones((5,5), numpy.uint8))
+  # A perfect erosion, performed by OpenCV's native method
+  #img_opened2 = cv2.morphologyEx(readImage, cv2.MORPH_OPEN, numpy.ones((5,5), numpy.uint8))
 
-# Normally save image, but for dev we just show it
-cv2.imwrite(filenameOut, img_opened)
-#cv2.imwrite('lena_opening_perfect.png', img_opened2)
-#cv2.imshow('mine', img_opened)
+  # Normally save image, but for dev we just show it
+  cv2.imwrite(filenameOut, img_opened)
+  #cv2.imwrite('lena_opening_perfect.png', img_opened2)
 
-cv2.waitKey(0)
-cv2.destroyAllWindows()
+  #cv2.imshow('mine', img_opened)
+  cv2.waitKey(0)
+  cv2.destroyAllWindows()
+
+if __name__ == "__main__":
+   main()

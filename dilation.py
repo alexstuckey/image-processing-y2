@@ -57,21 +57,25 @@ def dilate(img):
 #####################################################################
 # Script implementation
 
-# Accessing the file
-filenameIn = sys.argv[1]
-filenameOut = sys.argv[2]
-readImage = cv2.imread(filenameIn, 0)
+def main():
+  # Accessing the file
+  filenameIn = sys.argv[1]
+  filenameOut = sys.argv[2]
+  readImage = cv2.imread(filenameIn, 0)
 
-# My erosion implementation
-img_dilated = dilate(readImage)
+  # My erosion implementation
+  img_dilated = dilate(readImage)
 
-# A perfect dilation, performed by OpenCV's native method
-#img_dilated2 = cv2.dilate(readImage, numpy.ones((5,5), numpy.uint8), iterations=1)
+  # A perfect dilation, performed by OpenCV's native method
+  #img_dilated2 = cv2.dilate(readImage, numpy.ones((5,5), numpy.uint8), iterations=1)
 
 
-# Normally save image, but for dev we just show it
-cv2.imwrite(filenameOut, img_dilated)
-#cv2.imshow('mine', img_dilated)
+  # Normally save image, but for dev we just show it
+  cv2.imwrite(filenameOut, img_dilated)
+  
+  #cv2.imshow('mine', img_dilated)
+  cv2.waitKey(0)
+  cv2.destroyAllWindows()
 
-cv2.waitKey(0)
-cv2.destroyAllWindows()
+if __name__ == "__main__":
+   main()
