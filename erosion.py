@@ -21,9 +21,6 @@ for x in range(0, img.shape[1]):
 		# Fix the origin of the structuring element at x,y.
 		# Then traverse each pixel of struct and work out what's beneath it.
 		# And perform a reduce.
-		firstPixelY    = y-verticalMove
-		firstPixelX    = x-horizontalMove
-
 		verticalRange   = range(y-verticalMove, y+1+verticalMove)
 		horizontalRange = range(x-horizontalMove, x+1+horizontalMove)
 		for a in horizontalRange:
