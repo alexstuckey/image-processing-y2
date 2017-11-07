@@ -19,10 +19,17 @@ for x in range(0, img.shape[1]):
 		# Fix the origin of the structuring element at x,y.
 		# Then traverse each pixel of struct and work out what's beneath it.
 		# And perform a reduce.
-		verticalMove   = y-origin[0]
-		horizontalMove = x-origin[1]
-		#verticalRange = range()
-		#print(vertical, horizontal)
+		verticalMove   = struct.shape[0]-origin[0]
+		horizontalMove = struct.shape[1]-origin[1]
+		firstPixelY    = y-verticalMove
+		firstPixelX    = x-horizontalMove
+
+		verticalRange   = range(y-verticalMove, y+1+verticalMove)
+		horizontalRange = range(x-horizontalMove, x+1+horizontalMove)
+		for a in horizontalRange:
+			for b in verticalRange:
+				#img_eroded[b,a] = 255
+				g = 1
 
 
 # A perfect erosion, performed by OpenCV's native method
@@ -31,6 +38,6 @@ for x in range(0, img.shape[1]):
 
 # Normally save image, but for dev we just show it
 #cv2.imwrite(filenameOut, img)
-cv2.imshow('image', img)
+cv2.imshow('image', img_eroded)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
