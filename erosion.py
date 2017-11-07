@@ -10,7 +10,9 @@ img = cv2.imread(filenameIn, 0)
 
 struct = numpy.ones((5,5), numpy.uint8)
 origin = [((struct.shape[0]-1)/2)+1,((struct.shape[1]-1)/2)+1]
-print(struct.shape[0]-origin[0])
+verticalMove   = struct.shape[0]-origin[0]
+horizontalMove = struct.shape[1]-origin[1]
+
 img_eroded = numpy.zeros((img.shape[0],img.shape[1]), numpy.uint8)
 
 # For each pixel of input image
@@ -19,8 +21,6 @@ for x in range(0, img.shape[1]):
 		# Fix the origin of the structuring element at x,y.
 		# Then traverse each pixel of struct and work out what's beneath it.
 		# And perform a reduce.
-		verticalMove   = struct.shape[0]-origin[0]
-		horizontalMove = struct.shape[1]-origin[1]
 		firstPixelY    = y-verticalMove
 		firstPixelX    = x-horizontalMove
 
