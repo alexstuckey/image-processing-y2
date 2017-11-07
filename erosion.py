@@ -1,4 +1,15 @@
+#####################################################################
+
 # Implement grayscale erosion with a square structuring element of a size 5x5.
+
+# Author : Alex Stuckey <alexander.e.stuckey@durham.ac.uk>
+#		     or <alex@stuckey.org.uk>
+
+# License : LGPL - http://www.gnu.org/licenses/lgpl.html
+
+# version: 0.1
+
+#####################################################################
 
 import cv2
 import sys
