@@ -9,7 +9,7 @@ filenameOut = sys.argv[2]
 img = cv2.imread(filenameIn, 0)
 
 struct = numpy.ones((5,5), numpy.uint8)
-origin = [3,3]
+origin = [((struct.shape[0]-1)/2)+1,((struct.shape[1]-1)/2)+1]
 print(struct.shape[0]-origin[0])
 img_eroded = numpy.zeros((img.shape[0],img.shape[1]), numpy.uint8)
 
